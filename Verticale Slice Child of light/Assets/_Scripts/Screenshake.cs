@@ -6,7 +6,7 @@ public class Screenshake : MonoBehaviour
     [SerializeField] private Transform _cameraTransform;                //Transform pakt de camera object
     [SerializeField] private float _shakeDur = 0;                       //hoe lang de camera moet shaken
     [SerializeField] private float _shakeAmount = 0;                    //amplitude van de shake
-    [SerializeField] private float _shakeDecrease = 0;                  //het tijd duur verlagen
+    [SerializeField] private float _decreaseFactor = 0;                  //het tijd duur verlagen
 
     private Vector3 _originalPos;                                       //positie camera is (0,0,0)
 
@@ -31,7 +31,7 @@ public class Screenshake : MonoBehaviour
         {
             //gaat terug naar een random positie in de radius van 1
             _cameraTransform.localPosition = _originalPos + Random.insideUnitSphere * _shakeAmount; 
-            _shakeDur -= Time.deltaTime * _shakeDecrease; //het verlagen van de screen shake
+            _shakeDur -= Time.deltaTime * _decreaseFactor; //het verlagen van de screen shake
         }
         else //als de shake NIET hoger is dan 0
         {
