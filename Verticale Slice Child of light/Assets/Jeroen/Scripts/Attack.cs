@@ -12,11 +12,14 @@ public class Attack : MonoBehaviour {
 	private WeaponTypes weaponType;
 	[SerializeField]
 	private int Damage = 10;
+	//Animator anim;
 
-	private EnemyHealth _EnemyHealth;
+	private EnemyHealth _enemyHealth;
 	// Use this for initialization
 	void Start () {
-		_EnemyHealth = GameObject.FindGameObjectWithTag ("Enemy").GetComponent<EnemyHealth> ();
+		Anim = GetComponent<Animator>();
+		_enemyHealth = GameObject.FindGameObjectWithTag ("Enemy").GetComponent<EnemyHealth> ();
+
 	}
 	
 	// Update is called once per frame
@@ -31,15 +34,18 @@ public class Attack : MonoBehaviour {
 			}
 		}
 
-			//Anim.Play ();
-		
+			
+		 
 	
 	}
 	void NormalAtt(){
 		Debug.Log ("NormalAtt");
+		Anim.SetFloat ("Start", 1f);
+
 	}
 
-
 }
+
+
 
 
