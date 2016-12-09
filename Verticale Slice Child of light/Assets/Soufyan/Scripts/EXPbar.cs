@@ -22,6 +22,5 @@ public class EXPbar : MonoBehaviour
         {
             _filledBar.fillAmount -= 0.1f;
         }
-
 	}
 }
