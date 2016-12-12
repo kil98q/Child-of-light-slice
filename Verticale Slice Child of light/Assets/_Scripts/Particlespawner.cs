@@ -20,8 +20,16 @@ public class Particlespawner : MonoBehaviour {
         if(Particles.Count < ParticleAmount)
         {
             SpawnParticle();
+            
         }
-	}
+        foreach (GameObject particlee in Particles)
+        {
+            if (particlee == null)
+            {
+                Particles.Remove(particlee);
+            }
+        }
+    }
 
     void SpawnParticle()
     {
@@ -37,15 +45,15 @@ public class Particlespawner : MonoBehaviour {
             {
                 Vector3 _partPos = new Vector3(particlee.transform.position.x, particlee.transform.position.y, particlee.transform.position.z);
                 print("Delete!");
-                if (false)
+                if (_partPos.x >SpawnRange.x + SpawnerPos.x|| _partPos.x < SpawnerPos.x - SpawnRange.x)
                 {
                     DestroyImmediate(particlee);
                 }
-                if (false)
+                if (_partPos.y > SpawnRange.y + SpawnerPos.y || _partPos.y < SpawnerPos.y - SpawnRange.y)
                 {
                     DestroyImmediate(particlee);
                 }
-                if (false)
+                if (_partPos.z > SpawnRange.z + SpawnerPos.z || _partPos.z < SpawnerPos.z - SpawnRange.z)
                 {
                     DestroyImmediate(particlee);
                 }
