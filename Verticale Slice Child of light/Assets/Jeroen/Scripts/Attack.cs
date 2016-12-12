@@ -29,22 +29,24 @@ public class Attack : MonoBehaviour {
 			case WeaponTypes.Normal:
 				NormalAtt ();
 				break;
-	
-
 			}
 		}
-
-			
-		 
-	
 	}
+
 	void NormalAtt(){
 		Debug.Log ("NormalAtt");
 		Anim.SetFloat ("Start", 1f);
-
 	}
+	
+
+
 
 }
+
+
+
+
+
 
 
 
