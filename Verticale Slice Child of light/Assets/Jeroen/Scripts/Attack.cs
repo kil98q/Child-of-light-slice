@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-public enum WeaponTypes{
+public enum AttackModes{
 	Normal = 0,
 
 }
@@ -9,30 +9,30 @@ public class Attack : MonoBehaviour {
 	[SerializeField]
 	private Animator Anim;
 	[SerializeField]
-	private WeaponTypes weaponType;
+	private AttackModes Attackmode;
 	[SerializeField]
-	private int Damage = 10;
+	private int Damage;
 	[SerializeField]
 	private Sprite Sword;
 	[SerializeField]
-	private Sprite attackmodes;
+	private Sprite AttackSelector;
 	//Animator anim;
 
 	private EnemyHealth _enemyHealth;
 	// Use this for initialization
 	void Start () {
 		
-
+		Damage = 10;
 		Anim = GetComponent<Animator>();
-		//_enemyHealth = GameObject.FindGameObjectWithTag ("Enemy").GetComponent<EnemyHealth> ();
+		_enemyHealth = GameObject.FindGameObjectWithTag ("Enemy").GetComponent<EnemyHealth> ();
 
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetKeyDown (KeyCode.A)) {
-			switch (weaponType) {
-			case WeaponTypes.Normal:
+			switch (Attackmode) {
+			case AttackModes.Normal:
 				NormalAtt ();
 				break;
 			}
@@ -40,10 +40,11 @@ public class Attack : MonoBehaviour {
 	}
 
 	void NormalAtt(){
+		_enemyHealth.health -= Damage;
 		Debug.Log ("NormalAtt");
 		Anim.SetFloat ("Start", 1f);
 		DestroyImmediate (Sword, true);
-		DestroyImmediate (attackmodes, true);
+		DestroyImmediate (AttackSelector, true);
 
 	}
 	
