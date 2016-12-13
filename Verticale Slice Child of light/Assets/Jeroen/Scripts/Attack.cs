@@ -12,13 +12,19 @@ public class Attack : MonoBehaviour {
 	private WeaponTypes weaponType;
 	[SerializeField]
 	private int Damage = 10;
+	[SerializeField]
+	private Sprite Sword;
+	[SerializeField]
+	private Sprite attackmodes;
 	//Animator anim;
 
 	private EnemyHealth _enemyHealth;
 	// Use this for initialization
 	void Start () {
+		
+
 		Anim = GetComponent<Animator>();
-		_enemyHealth = GameObject.FindGameObjectWithTag ("Enemy").GetComponent<EnemyHealth> ();
+		//_enemyHealth = GameObject.FindGameObjectWithTag ("Enemy").GetComponent<EnemyHealth> ();
 
 	}
 	
@@ -36,6 +42,9 @@ public class Attack : MonoBehaviour {
 	void NormalAtt(){
 		Debug.Log ("NormalAtt");
 		Anim.SetFloat ("Start", 1f);
+		DestroyImmediate (Sword, true);
+		DestroyImmediate (attackmodes, true);
+
 	}
 	
 
