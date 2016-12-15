@@ -13,9 +13,11 @@ public class Attack : MonoBehaviour {
 	[SerializeField]
 	private int Damage;
 	[SerializeField]
-	private Sprite Sword;
+	private GameObject AttackSelector;
 	[SerializeField]
-	private Sprite AttackSelector;
+	private AudioSource _knifesounds;
+
+
 	//Animator anim;
 
 	private EnemyHealth _enemyHealth;
@@ -25,6 +27,7 @@ public class Attack : MonoBehaviour {
 		Damage = 10;
 		Anim = GetComponent<Animator>();
 		_enemyHealth = GameObject.FindGameObjectWithTag ("Enemy").GetComponent<EnemyHealth> ();
+
 
 	}
 	
@@ -43,8 +46,8 @@ public class Attack : MonoBehaviour {
 		_enemyHealth.health -= Damage;
 		Debug.Log ("NormalAtt");
 		Anim.SetFloat ("Start", 1f);
-		DestroyImmediate (Sword, true);
-		DestroyImmediate (AttackSelector, true);
+		Destroy (AttackSelector);
+		_knifesounds.Play ();
 
 	}
 	
