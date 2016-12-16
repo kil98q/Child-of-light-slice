@@ -14,13 +14,9 @@ public class EXPbar : MonoBehaviour
         _filledBar.fillAmount = Time.time * _fillSpeed;
         _filledBar.fillAmount += _amount * _fillSpeed;
 
-        if(_filledBar.fillAmount == 0.30f)
+        if(_filledBar.fillAmount > 0.9f)
         {
-            _filledBar.fillAmount += 0.60f;
-        }
-        else if(_filledBar.fillAmount == 1f)
-        {
-            _filledBar.fillAmount -= 0.1f;
+            _filledBar.fillAmount = 0.9f;
         }
 	}
 }
