@@ -16,17 +16,18 @@ public class Attack : MonoBehaviour {
 	private GameObject AttackSelector;
 	[SerializeField]
 	private AudioSource _knifesounds;
-
-
-	//Animator anim;
-
 	private EnemyHealth _enemyHealth;
+	private AudioSource Sound;
+	[SerializeField]
+	private AudioClip _deathSound;
+
 	// Use this for initialization
 	void Start () {
 		
 		Damage = 10;
 		Anim = GetComponent<Animator>();
 		_enemyHealth = GameObject.FindGameObjectWithTag ("Enemy").GetComponent<EnemyHealth> ();
+		Sound = GetComponent<AudioSource> ();
 
 
 	}
@@ -43,6 +44,7 @@ public class Attack : MonoBehaviour {
 	}
 
 	void NormalAtt(){
+		Sound.PlayOneShot(_deathSound, 1);
 		_enemyHealth.health -= Damage;
 		Debug.Log ("NormalAtt");
 		Anim.SetFloat ("Start", 1f);
