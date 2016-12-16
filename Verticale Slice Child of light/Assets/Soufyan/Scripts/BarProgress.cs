@@ -14,10 +14,11 @@ public class BarProgress : MonoBehaviour
     {
         _filledBar.fillAmount -= _min * _fillSpeed;
         _barDisplay = Time.time * -_fillSpeed;
-
-        if(_barDisplay < -0.6)
+        
+        if(_filledBar.fillAmount < 0.8f)
         {
             _filledBar.fillAmount = 0.8f;
         }
+
     }
 }
