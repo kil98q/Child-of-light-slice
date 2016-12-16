@@ -2,18 +2,12 @@
 using System.Collections;
 
 public class TreeBreathingMotion : MonoBehaviour {
-    [SerializeField]
-    float degreesBreathing = 10;
-    [SerializeField]
-    float startingRotation;
-    [SerializeField]
-    float degrees = 0;
-    [SerializeField]
-    bool RotationRight = true;
-    [SerializeField]
-    float startTime;
-    [SerializeField]
-    float duration;
+    [SerializeField] float degreesBreathing = 10;
+    [SerializeField] float startingRotation;
+    [SerializeField] float degrees = 0;
+    [SerializeField] bool RotationRight = true;
+    [SerializeField] float startTime;
+    [SerializeField] float duration;
     // Use this for initialization
     void Start () {
         startingRotation = transform.localEulerAngles.z;
@@ -43,6 +37,7 @@ public class TreeBreathingMotion : MonoBehaviour {
             }
         }
 	}
+    // Function to shorten the line length
     float Damping(float currentRotation,float Target,float Speed)
     {
         return Mathf.SmoothStep(currentRotation, Target, (Time.time - startTime) / Speed);

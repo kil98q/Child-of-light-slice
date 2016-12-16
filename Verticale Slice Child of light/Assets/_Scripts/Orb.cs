@@ -3,7 +3,8 @@ using System.Collections;
 using UnityEngine.UI;
 
 public class Orb : MonoBehaviour {
-    public float Current;
+    private float Current;
+    public float _Current { get { return Current; } }
     public float Speed;
     public float Distance;
     public bool Enabled;

@@ -2,15 +2,12 @@
 using System.Collections;
 
 public class ParticleMovement : MonoBehaviour {
-    [SerializeField]
-    float direction;
-    [SerializeField]
-    float velocity;
-    [SerializeField]
-    float vel;
-    [SerializeField]
-    float speed;
+    [SerializeField] float direction;
+    [SerializeField] float velocity;
+    [SerializeField] float vel;
+    [SerializeField] float speed;
     [SerializeField] Rigidbody2D Particle;
+
 	// Use this for initialization
 	void Start () {
         Particle = GetComponent<Rigidbody2D>();
@@ -18,7 +15,7 @@ public class ParticleMovement : MonoBehaviour {
         
     }
 	
-	// Update is called once per frame
+	// Badly written code to let a particle fly naturally
 	void Update () {
         velocity = Particle.velocity.x + Particle.velocity.y;
         vel = Mathf.SmoothDamp(vel, speed, ref velocity, speed/2, 0.5f);
@@ -30,6 +27,7 @@ public class ParticleMovement : MonoBehaviour {
         Particle.rotation = Mathf.SmoothDamp(Particle.rotation, direction, ref velocity, speed,100);
         
     }
+    // Generates a random direction and speed every 3 seconds
     IEnumerator AutoRotate(){
         while (true)
         {

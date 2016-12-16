@@ -30,13 +30,14 @@ public class Particlespawner : MonoBehaviour {
             }
         }
     }
-
+    // Spawns a particle in a random position / not finished
     void SpawnParticle()
     {
         GameObject NewParticle = Instantiate(ParticlePrefab);
         Particles.Add(NewParticle);
         NewParticle.transform.position = transform.position;
     }
+    // If the particle leaves spawn range remove it  this code is bugged atm
     void RemoveParticlesOffscreen()
     {
         foreach(GameObject particlee in Particles)
