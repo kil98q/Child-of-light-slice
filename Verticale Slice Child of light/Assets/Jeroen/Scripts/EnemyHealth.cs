@@ -16,8 +16,6 @@ public class EnemyHealth : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (health <= 0) {
-			//_deathSounds.Play ();
-			//Enemy.SetActive (false);
 			Destroy (gameObject, 5f);
 			Animator.SetFloat ("Death", 1f);
 
