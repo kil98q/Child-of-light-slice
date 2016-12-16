@@ -20,7 +20,7 @@ public class EnemyHealth : MonoBehaviour {
 		if (health <= 0) {
 			Destroy (gameObject, 5f);
 			Animator.SetFloat ("Death", 1f);
-			Instantiate (_enemydeathpraticle, transform.position, transform.rotation);
+			_enemydeathpraticle.Play ();
 
 		} 
 	}
