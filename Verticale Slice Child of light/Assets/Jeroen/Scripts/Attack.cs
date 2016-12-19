@@ -22,7 +22,6 @@ public class Attack : MonoBehaviour {
 	private AudioClip _deathSound;
 	[SerializeField]
 	private AnimationClip Animatie;
-	[SerializeField]
 	private bool _swing;
 
 	// Use this for initialization
@@ -48,11 +47,9 @@ public class Attack : MonoBehaviour {
 
 		if (Input.GetKeyDown (KeyCode.A)|| _swing == false) 
 		{
-			_swing = true;
 				switch (Attackmode) {
 				case AttackModes.Normal:
 					NormalAtt ();
-					_swing = true;
 				break;
 			}
 			Anim.SetBool ("Attack", true);
@@ -88,6 +85,7 @@ public class Attack : MonoBehaviour {
 		_swing = false;
 		Anim.SetBool ("Attack", false);
 		Anim.SetBool ("Idle", true);
+		Debug.Log ("");
 	}
 
 
