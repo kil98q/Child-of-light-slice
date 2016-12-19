@@ -45,7 +45,7 @@ public class Attack : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		if (Input.GetKeyDown (KeyCode.A)|| _swing == false) 
+		if (Input.GetKeyDown (KeyCode.A) && _swing == false) 
 		{
 				switch (Attackmode) {
 				case AttackModes.Normal:
@@ -53,11 +53,11 @@ public class Attack : MonoBehaviour {
 				break;
 			}
 			Anim.SetBool ("Attack", true);
-			Anim.SetBool ("Idle", false);
+			Anim.SetBool ("Idle", false); 
 			_swing = true;
 		}
 
-		if (_swing = true) 
+		if (_swing == true) 
 		{
 			StartCoroutine (AttackTimer ());
 		}
@@ -81,11 +81,13 @@ public class Attack : MonoBehaviour {
 	IEnumerator AttackTimer()
 	{
 		
-		yield return new WaitForSeconds (3f);
+		yield return new WaitForSeconds (Animatie.length);
 		_swing = false;
 		Anim.SetBool ("Attack", false);
 		Anim.SetBool ("Idle", true);
-		Debug.Log ("");
+		Debug.Log ("123");
+
+
 	}
 
 
