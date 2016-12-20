@@ -61,6 +61,9 @@ public class Attack : MonoBehaviour {
 		{
 			StartCoroutine (AttackTimer ());
 		}
+		if (Input.GetKeyDown (KeyCode.R)) {
+			Application.LoadLevel ("MainScene");
+		}
 
 
 	}
